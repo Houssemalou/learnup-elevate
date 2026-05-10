@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { GraduationCap, Twitter, Linkedin, Facebook, Instagram, Mail } from "lucide-react";
+import { GraduationCap, Facebook, Instagram, Mail } from "lucide-react";
 
 export function Footer() {
   return (
