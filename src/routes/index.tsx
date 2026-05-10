@@ -289,7 +289,7 @@ function HomePage() {
             eyebrow="Témoignages"
             title={<>Ils parlent de <span className="text-gradient">LearnUp</span></>}
           />
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 mx-auto max-w-2xl">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
@@ -297,14 +297,14 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="glass rounded-2xl p-6"
+                className="glass rounded-2xl p-8"
               >
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
+                <p className="mt-4 text-base leading-relaxed">"{t.quote}"</p>
                 <div className="mt-6">
                   <div className="font-semibold text-sm">{t.name}</div>
                   <div className="text-xs text-muted-foreground">{t.role}</div>
