@@ -350,11 +350,19 @@ function HomePage() {
                   <div className="flex items-center gap-3"><Zap className="h-4 w-4 text-primary" /> Démo personnalisée gratuite</div>
                 </div>
               </div>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <Input placeholder="Votre nom" className="glass border-white/10" />
-                <Input type="email" placeholder="Email professionnel" className="glass border-white/10" />
-                <Input placeholder="Nom de l'établissement" className="glass border-white/10" />
-                <Textarea placeholder="Votre message" rows={4} className="glass border-white/10" />
+              <form
+                action="https://formsubmit.co/learnupadmin@gmail.com"
+                method="POST"
+                className="space-y-4"
+              >
+                <input type="hidden" name="_subject" value="Nouvelle demande LearnUp" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <Input name="name" placeholder="Votre nom" required className="glass border-white/10" />
+                <Input name="email" type="email" placeholder="Email professionnel" required className="glass border-white/10" />
+                <Input name="phone" type="tel" placeholder="Numéro de téléphone" required className="glass border-white/10" />
+                <Input name="school" placeholder="Nom de l'établissement" className="glass border-white/10" />
+                <Textarea name="message" placeholder="Votre message" rows={4} required className="glass border-white/10" />
                 <Button type="submit" className="w-full bg-brand text-white shadow-glow">
                   Envoyer la demande
                 </Button>
