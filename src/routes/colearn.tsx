@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  Video, PenTool, Lock, FileDown, Radio, Sparkles, FolderShare, Eye,
+  Video, PenTool, Lock, FileDown, Radio, Sparkles, FolderSymlink, Eye,
   Trophy, Gamepad2, Award, Mic, Languages, NotebookPen, ArrowRight, Check,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
@@ -30,7 +30,7 @@ const features = [
   { icon: FileDown, title: "Export automatique PDF", desc: "Vos cours sauvegardés au format PDF." },
   { icon: Radio, title: "Enregistrement automatique", desc: "Toutes les sessions enregistrées." },
   { icon: Sparkles, title: "Résumés IA", desc: "Génération intelligente des résumés." },
-  { icon: FolderShare, title: "Partage de documents", desc: "Gestion centralisée prof/élèves." },
+  { icon: FolderSymlink, title: "Partage de documents", desc: "Gestion centralisée prof/élèves." },
   { icon: Eye, title: "Suivi de consultation", desc: "Voyez qui a consulté chaque document." },
   { icon: Trophy, title: "Challenges & compétitions", desc: "Stimulez la motivation des élèves." },
   { icon: Gamepad2, title: "Quiz & jeux éducatifs", desc: "Apprentissage interactif et ludique." },
@@ -47,8 +47,8 @@ const stats = [
   { value: "98%", label: "Satisfaction prof" },
 ];
 
-function FolderShareIcon() { return null; }
-void FolderShareIcon;
+function FolderSymlinkIcon() { return null; }
+void FolderSymlinkIcon;
 
 function CoLearnPage() {
   return (
