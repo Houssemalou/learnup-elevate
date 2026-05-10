@@ -9,8 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SchoolManagerRouteImport } from './routes/school-manager'
+import { Route as ColearnRouteImport } from './routes/colearn'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SchoolManagerRoute = SchoolManagerRouteImport.update({
+  id: '/school-manager',
+  path: '/school-manager',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColearnRoute = ColearnRouteImport.update({
+  id: '/colearn',
+  path: '/colearn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +31,50 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/colearn': typeof ColearnRoute
+  '/school-manager': typeof SchoolManagerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/colearn': typeof ColearnRoute
+  '/school-manager': typeof SchoolManagerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/colearn': typeof ColearnRoute
+  '/school-manager': typeof SchoolManagerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/colearn' | '/school-manager'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/colearn' | '/school-manager'
+  id: '__root__' | '/' | '/colearn' | '/school-manager'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ColearnRoute: typeof ColearnRoute
+  SchoolManagerRoute: typeof SchoolManagerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/school-manager': {
+      id: '/school-manager'
+      path: '/school-manager'
+      fullPath: '/school-manager'
+      preLoaderRoute: typeof SchoolManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colearn': {
+      id: '/colearn'
+      path: '/colearn'
+      fullPath: '/colearn'
+      preLoaderRoute: typeof ColearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +87,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ColearnRoute: ColearnRoute,
+  SchoolManagerRoute: SchoolManagerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
