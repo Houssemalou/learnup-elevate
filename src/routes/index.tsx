@@ -30,10 +30,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "200+", label: "Écoles connectées" },
-  { value: "15k", label: "Professeurs actifs" },
-  { value: "120k", label: "Élèves formés" },
-  { value: "99.9%", label: "Disponibilité" },
+  { value: "1", label: "École cliente" },
+  { value: "200+", label: "Élèves actifs" },
+  { value: "100%", label: "Satisfaction" },
+  { value: "24/7", label: "Support" },
 ];
 
 const highlights = [
@@ -44,9 +44,7 @@ const highlights = [
 ];
 
 const testimonials = [
-  { name: "Sami B.", role: "Directeur, École El Manar", quote: "LearnUp a transformé notre administration. Tout est centralisé, fluide, et nos parents adorent l'application." },
-  { name: "Leïla H.", role: "Professeure de mathématiques", quote: "Le tableau blanc collaboratif et l'assistant IA changent vraiment ma façon d'enseigner. Mes élèves sont plus engagés." },
-  { name: "Karim Z.", role: "Parent d'élève", quote: "Je suis les notes, les absences et les paiements depuis mon téléphone. Une révolution pour les parents." },
+  { name: "Ishak", role: "Directeur, École privée Manara", quote: "LearnUp a transformé notre administration. Tout est centralisé, fluide, et nos parents adorent l'application mobile. Une solution premium qui répond parfaitement à nos besoins." },
 ];
 
 const faqs = [
@@ -291,7 +289,7 @@ function HomePage() {
             eyebrow="Témoignages"
             title={<>Ils parlent de <span className="text-gradient">LearnUp</span></>}
           />
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 mx-auto max-w-2xl">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
@@ -299,14 +297,14 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="glass rounded-2xl p-6"
+                className="glass rounded-2xl p-8"
               >
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
+                <p className="mt-4 text-base leading-relaxed">"{t.quote}"</p>
                 <div className="mt-6">
                   <div className="font-semibold text-sm">{t.name}</div>
                   <div className="text-xs text-muted-foreground">{t.role}</div>
@@ -352,11 +350,19 @@ function HomePage() {
                   <div className="flex items-center gap-3"><Zap className="h-4 w-4 text-primary" /> Démo personnalisée gratuite</div>
                 </div>
               </div>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <Input placeholder="Votre nom" className="glass border-white/10" />
-                <Input type="email" placeholder="Email professionnel" className="glass border-white/10" />
-                <Input placeholder="Nom de l'établissement" className="glass border-white/10" />
-                <Textarea placeholder="Votre message" rows={4} className="glass border-white/10" />
+              <form
+                action="https://formsubmit.co/learnupadmin@gmail.com"
+                method="POST"
+                className="space-y-4"
+              >
+                <input type="hidden" name="_subject" value="Nouvelle demande LearnUp" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <Input name="name" placeholder="Votre nom" required className="glass border-white/10" />
+                <Input name="email" type="email" placeholder="Email professionnel" required className="glass border-white/10" />
+                <Input name="phone" type="tel" placeholder="Numéro de téléphone" required className="glass border-white/10" />
+                <Input name="school" placeholder="Nom de l'établissement" className="glass border-white/10" />
+                <Textarea name="message" placeholder="Votre message" rows={4} required className="glass border-white/10" />
                 <Button type="submit" className="w-full bg-brand text-white shadow-glow">
                   Envoyer la demande
                 </Button>
