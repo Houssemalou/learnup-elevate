@@ -19,7 +19,7 @@ export function Footer() {
               La plateforme tout-en-un pour digitaliser l'éducation moderne.
             </p>
             <div className="mt-6 flex gap-3">
-              {[Twitter, Linkedin, Facebook, Instagram].map((Icon, i) => (
+              {[Instagram, Facebook].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
