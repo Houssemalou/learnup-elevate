@@ -44,9 +44,7 @@ const highlights = [
 ];
 
 const testimonials = [
-  { name: "Sami B.", role: "Directeur, École El Manar", quote: "LearnUp a transformé notre administration. Tout est centralisé, fluide, et nos parents adorent l'application." },
-  { name: "Leïla H.", role: "Professeure de mathématiques", quote: "Le tableau blanc collaboratif et l'assistant IA changent vraiment ma façon d'enseigner. Mes élèves sont plus engagés." },
-  { name: "Karim Z.", role: "Parent d'élève", quote: "Je suis les notes, les absences et les paiements depuis mon téléphone. Une révolution pour les parents." },
+  { name: "Ishak", role: "Directeur, École privée Manara", quote: "LearnUp a transformé notre administration. Tout est centralisé, fluide, et nos parents adorent l'application mobile. Une solution premium qui répond parfaitement à nos besoins." },
 ];
 
 const faqs = [
