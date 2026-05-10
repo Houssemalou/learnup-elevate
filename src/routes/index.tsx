@@ -30,10 +30,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "200+", label: "Écoles connectées" },
-  { value: "15k", label: "Professeurs actifs" },
-  { value: "120k", label: "Élèves formés" },
-  { value: "99.9%", label: "Disponibilité" },
+  { value: "1", label: "École cliente" },
+  { value: "200+", label: "Élèves actifs" },
+  { value: "100%", label: "Satisfaction" },
+  { value: "24/7", label: "Support" },
 ];
 
 const highlights = [
