@@ -222,26 +222,32 @@ function HomePage() {
             description="Des prix transparents pour professeurs, élèves et établissements."
           />
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "coLearn — Professeurs",
+                name: "Prof — Starter",
                 price: "250",
                 unit: "DT/an",
-                features: ["Sessions illimitées", "Tableau blanc collaboratif", "Export PDF & enregistrement", "Suivi des élèves"],
+                features: ["5 sessions / mois", "Tableau blanc collaboratif", "Export PDF & enregistrement", "Suivi des élèves"],
               },
               {
-                name: "coLearn — Élèves",
-                price: "100",
+                name: "Prof — Pro",
+                price: "500",
                 unit: "DT/an",
-                features: ["Accès aux cours", "Quiz & gamification", "Documents partagés", "Classement temps réel"],
+                features: ["12 sessions / mois", "Tableau blanc collaboratif", "Export PDF & enregistrement", "Suivi des élèves"],
                 popular: true,
               },
               {
-                name: "School Manager",
-                price: "35",
-                unit: "DT/an / élève",
-                features: ["Gestion complète", "App mobile parents", "Multi-campus", "Support dédié"],
+                name: "Prof — Pay as you go",
+                price: "Sur mesure",
+                unit: "",
+                features: ["Sessions illimitées", "Facturation à l'usage", "Tableau blanc collaboratif", "Enregistrements"],
+              },
+              {
+                name: "Élèves",
+                price: "100",
+                unit: "DT/an",
+                features: ["Accès aux cours", "Quiz & gamification", "Documents partagés", "Classement temps réel"],
               },
             ].map((p, i) => (
               <motion.div
