@@ -283,7 +283,7 @@ function HomePage() {
           </div>
 
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            Module IA disponible en complément à <span className="text-foreground font-semibold">20 DT/mois</span>.
+            School Manager disponible sur devis pour les établissements.
           </p>
         </div>
       </section>
