@@ -136,11 +136,12 @@ function CoLearnPage() {
             eyebrow="Tarifs coLearn"
             title={<>Tarification <span className="text-gradient">claire</span></>}
           />
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: "Professeurs", price: "250", unit: "DT/an", features: ["Sessions illimitées", "Tableau blanc", "Export PDF", "Enregistrements"] },
-              { name: "Élèves", price: "100", unit: "DT/an", features: ["Accès cours", "Quiz & jeux", "Classements", "Documents"], popular: true },
-              { name: "Module IA", price: "20", unit: "DT/mois", features: ["Assistant vocal", "Résumés auto", "FR & EN", "Conversations illimitées"] },
+              { name: "Prof — Starter", price: "250", unit: "DT/an", features: ["5 sessions / mois", "Tableau blanc", "Export PDF", "Enregistrements"] },
+              { name: "Prof — Pro", price: "500", unit: "DT/an", features: ["12 sessions / mois", "Tableau blanc", "Export PDF", "Enregistrements"], popular: true },
+              { name: "Prof — Pay as you go", price: "Sur mesure", unit: "", features: ["Sessions illimitées", "Facturation à l'usage", "Tableau blanc", "Enregistrements"] },
+              { name: "Élèves", price: "100", unit: "DT/an", features: ["Accès cours", "Quiz & jeux", "Classements", "Documents"] },
             ].map((p) => (
               <div key={p.name} className={`glass relative rounded-3xl p-8 ${p.popular ? "border-primary/60 shadow-glow" : ""}`}>
                 {p.popular && (
