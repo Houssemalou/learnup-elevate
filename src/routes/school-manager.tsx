@@ -146,7 +146,7 @@ function SchoolPage() {
           <div className="glass rounded-3xl p-10 text-center shadow-glow">
             <SectionHeader
               eyebrow="Tarification"
-              title={<>À partir de <span className="text-gradient">35 DT/an</span> par élève</>}
+              title={<>À partir de <span className="text-gradient">25 DT/an</span> par élève</>}
               description="Toutes les fonctionnalités incluses. Tarifs dégressifs selon le nombre d'élèves."
             />
             <div className="mt-8 flex flex-wrap justify-center gap-3">

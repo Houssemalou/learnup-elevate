@@ -350,7 +350,7 @@ function HomePage() {
                   description="Notre équipe vous répond sous 24h."
                 />
                 <div className="mt-8 space-y-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-3"><Mail className="h-4 w-4 text-primary" /> hello@learnup.tn</div>
+                  <div className="flex items-center gap-3"><Mail className="h-4 w-4 text-primary" /> learnupadmin@gmail.com</div>
                   <div className="flex items-center gap-3"><MessageSquare className="h-4 w-4 text-primary" /> Réponse en moins de 24h</div>
                   <div className="flex items-center gap-3"><Globe className="h-4 w-4 text-primary" /> FR · AR · EN</div>
                   <div className="flex items-center gap-3"><Zap className="h-4 w-4 text-primary" /> Démo personnalisée gratuite</div>
@@ -383,5 +383,4 @@ function HomePage() {
   );
 }
 
-// keep for icon import
 void ChevronDown;
