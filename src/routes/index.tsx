@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { type FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight, Sparkles, Users, School, BookOpen, Bot, BarChart3, Shield,
   Check, Zap, Globe, Mail, MessageSquare, Star, ChevronDown,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -55,6 +57,32 @@ const faqs = [
 ];
 
 function HomePage() {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submit failed");
+      }
+
+      toast.success("Merci ! Votre demande a bien ete envoyee.");
+      form.reset();
+    } catch (error) {
+      toast.error("Une erreur est survenue. Merci de reessayer.");
+    }
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Navbar />
@@ -275,8 +303,12 @@ function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Button className={`mt-8 w-full ${p.popular ? "bg-brand text-white shadow-glow" : ""}`} variant={p.popular ? "default" : "outline"}>
-                  Commencer
+                <Button
+                  className={`mt-8 w-full ${p.popular ? "bg-brand text-white shadow-glow" : ""}`}
+                  variant={p.popular ? "default" : "outline"}
+                  asChild
+                >
+                  <Link to="/#contact">Commencer</Link>
                 </Button>
               </motion.div>
             ))}
@@ -360,6 +392,7 @@ function HomePage() {
                 action="https://formsubmit.co/learnupadmin@gmail.com"
                 method="POST"
                 className="space-y-4"
+                onSubmit={handleSubmit}
               >
                 <input type="hidden" name="_subject" value="Nouvelle demande LearnUp" />
                 <input type="hidden" name="_captcha" value="false" />

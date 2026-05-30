@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
 } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -100,6 +101,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <HeadContent />
       <Outlet />
+      <Toaster />
     </QueryClientProvider>
   );
 }

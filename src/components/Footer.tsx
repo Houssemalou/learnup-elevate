@@ -52,7 +52,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@learnup.tn</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> learnupadmin@gmail.com</li>
               <li>Tunis, Tunisie</li>
             </ul>
           </div>
